@@ -250,6 +250,30 @@ src/dummy.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExampleGTest.dir/build.make CMakeFiles/ExampleGTest.dir/src/dummy.cpp.s
 .PHONY : src/dummy.cpp.s
 
+src/foo.o: src/foo.cpp.o
+.PHONY : src/foo.o
+
+# target to build an object file
+src/foo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExampleGTest.dir/build.make CMakeFiles/ExampleGTest.dir/src/foo.cpp.o
+.PHONY : src/foo.cpp.o
+
+src/foo.i: src/foo.cpp.i
+.PHONY : src/foo.i
+
+# target to preprocess a source file
+src/foo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExampleGTest.dir/build.make CMakeFiles/ExampleGTest.dir/src/foo.cpp.i
+.PHONY : src/foo.cpp.i
+
+src/foo.s: src/foo.cpp.s
+.PHONY : src/foo.s
+
+# target to generate assembly for a file
+src/foo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExampleGTest.dir/build.make CMakeFiles/ExampleGTest.dir/src/foo.cpp.s
+.PHONY : src/foo.cpp.s
+
 test/testDummy.o: test/testDummy.cpp.o
 .PHONY : test/testDummy.o
 
@@ -294,6 +318,9 @@ help:
 	@echo "... src/dummy.o"
 	@echo "... src/dummy.i"
 	@echo "... src/dummy.s"
+	@echo "... src/foo.o"
+	@echo "... src/foo.i"
+	@echo "... src/foo.s"
 	@echo "... test/testDummy.o"
 	@echo "... test/testDummy.i"
 	@echo "... test/testDummy.s"

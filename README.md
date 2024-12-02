@@ -4,6 +4,28 @@ Implementation of C++ memory.h library
 
 
 ### Setup GTest
+- Add GTest as a submodule
 ``` bash
-git clone git@github.com:google/googletest.git
+git submodule add https://github.com/google/googletest.git googletest
+
 ```
+
+### Manually Running GTest
+
+Build
+``` bash
+cd googletest
+mkdir build
+cd build
+cmake .. -DBUILD_GMOCK=OFF
+make
+cd ../..
+g++ example.cpp googletest/build/lib/libgtest.a googletest/build/lib/libgtest_main.a -lpthread -I googletest/googletest/include/
+```
+
+Run
+``` bash
+# In repo root
+./a.out
+```
+

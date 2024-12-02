@@ -3,8 +3,17 @@
 
 using namespace std;
 
-TEST(exampleTest, test1) {
-    ASSERT_EQ(1, 1);
+class Example {
+    public:
+        int foo() {
+            return 1;
+        }
+
+};
+
+TEST(exampleTest, test2) {
+    Example ex;
+    ASSERT_EQ(1, ex.foo());
 }
 
 int main(int argc, char **argv) {

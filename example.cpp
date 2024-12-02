@@ -39,7 +39,8 @@ TEST_F(TestFixture, test2) {
     ASSERT_NE(0, ex->foo());
 }
 
-int main(int argc, char **argv) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+// Not needed with CMakeLists: gtest_discover_tests
+// int main(int argc, char **argv) {
+//     testing::InitGoogleTest(&argc, argv);
+//     return RUN_ALL_TESTS();
+// }

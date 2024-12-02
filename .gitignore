@@ -3,6 +3,8 @@
 
 # CMake junk
 /CMakeFiles
+/_deps
+/bin
 
 # Compiled Object files
 *.slo

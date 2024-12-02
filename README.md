@@ -1,12 +1,14 @@
 # smart-pointers
 Implementation of C++ memory.h library
 
-### Run CMAke
+### Build GTest program
 ``` bash
 # Project root
 cmake .
+make
 ```
 - This will build a `Makefile` based on CMakeLists.txt
+- Then run the makefile to compile the .cpp gtest code
 
 
 

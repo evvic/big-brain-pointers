@@ -11,9 +11,32 @@ class Example {
 
 };
 
-TEST(exampleTest, test2) {
-    Example ex;
-    ASSERT_EQ(1, ex.foo());
+class TestFixture : public testing::Test
+{
+    public:
+        TestFixture(){
+            ex = new Example();
+        }
+
+        ~TestFixture(){}
+
+        void SetUp() {
+
+        }
+
+        void TearDown() {
+
+        }
+
+    Example *ex;
+};
+
+TEST_F(TestFixture, test1) {
+    ASSERT_EQ(1, ex->foo());
+}
+
+TEST_F(TestFixture, test2) {
+    ASSERT_NE(0, ex->foo());
 }
 
 int main(int argc, char **argv) {

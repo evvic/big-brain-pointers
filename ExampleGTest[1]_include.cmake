@@ -1,0 +1,5 @@
+if(EXISTS "/home/ewic/Documents/smart-pointers/ExampleGTest[1]_tests.cmake")
+  include("/home/ewic/Documents/smart-pointers/ExampleGTest[1]_tests.cmake")
+else()
+  add_test(ExampleGTest_NOT_BUILT ExampleGTest_NOT_BUILT)
+endif()

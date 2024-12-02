@@ -226,29 +226,53 @@ gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
-example.o: example.cpp.o
-.PHONY : example.o
+src/dummy.o: src/dummy.cpp.o
+.PHONY : src/dummy.o
 
 # target to build an object file
-example.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExampleGTest.dir/build.make CMakeFiles/ExampleGTest.dir/example.cpp.o
-.PHONY : example.cpp.o
+src/dummy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExampleGTest.dir/build.make CMakeFiles/ExampleGTest.dir/src/dummy.cpp.o
+.PHONY : src/dummy.cpp.o
 
-example.i: example.cpp.i
-.PHONY : example.i
+src/dummy.i: src/dummy.cpp.i
+.PHONY : src/dummy.i
 
 # target to preprocess a source file
-example.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExampleGTest.dir/build.make CMakeFiles/ExampleGTest.dir/example.cpp.i
-.PHONY : example.cpp.i
+src/dummy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExampleGTest.dir/build.make CMakeFiles/ExampleGTest.dir/src/dummy.cpp.i
+.PHONY : src/dummy.cpp.i
 
-example.s: example.cpp.s
-.PHONY : example.s
+src/dummy.s: src/dummy.cpp.s
+.PHONY : src/dummy.s
 
 # target to generate assembly for a file
-example.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExampleGTest.dir/build.make CMakeFiles/ExampleGTest.dir/example.cpp.s
-.PHONY : example.cpp.s
+src/dummy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExampleGTest.dir/build.make CMakeFiles/ExampleGTest.dir/src/dummy.cpp.s
+.PHONY : src/dummy.cpp.s
+
+test/testDummy.o: test/testDummy.cpp.o
+.PHONY : test/testDummy.o
+
+# target to build an object file
+test/testDummy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExampleGTest.dir/build.make CMakeFiles/ExampleGTest.dir/test/testDummy.cpp.o
+.PHONY : test/testDummy.cpp.o
+
+test/testDummy.i: test/testDummy.cpp.i
+.PHONY : test/testDummy.i
+
+# target to preprocess a source file
+test/testDummy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExampleGTest.dir/build.make CMakeFiles/ExampleGTest.dir/test/testDummy.cpp.i
+.PHONY : test/testDummy.cpp.i
+
+test/testDummy.s: test/testDummy.cpp.s
+.PHONY : test/testDummy.s
+
+# target to generate assembly for a file
+test/testDummy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExampleGTest.dir/build.make CMakeFiles/ExampleGTest.dir/test/testDummy.cpp.s
+.PHONY : test/testDummy.cpp.s
 
 # Help Target
 help:
@@ -267,9 +291,12 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... example.o"
-	@echo "... example.i"
-	@echo "... example.s"
+	@echo "... src/dummy.o"
+	@echo "... src/dummy.i"
+	@echo "... src/dummy.s"
+	@echo "... test/testDummy.o"
+	@echo "... test/testDummy.i"
+	@echo "... test/testDummy.s"
 .PHONY : help
 
 

@@ -2,7 +2,7 @@
 *.d
 
 # CMake junk
-/CMakeFiles
+CMakeFiles
 /_deps
 /bin
 

@@ -1,6 +1,5 @@
 #include <iostream>
 #include "memory.h"
-#include "main.h"
 
 class Test {
 public:

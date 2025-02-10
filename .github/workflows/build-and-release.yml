@@ -19,11 +19,18 @@ jobs:
     - name: Install dependencies
       run: sudo apt-get install -y g++
 
+    - name: Create build directory
+      run: mkdir -p build
+
     - name: Configure CMake
-      run: cmake -S . -B build
+      run: |
+        cd build
+        cmake ..
 
     - name: Build
-      run: cmake --build build --config Release
+      run: |
+        cd build
+        make
 
     - name: Archive build artifacts
       uses: actions/upload-artifact@v4

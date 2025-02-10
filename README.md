@@ -1,5 +1,5 @@
 # big-brain-pointers
-Implementation of C++ memory.h library
+My implementation of the memory.h library leveraging C++23
 
 # Build the library
 ```bash

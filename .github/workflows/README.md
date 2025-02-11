@@ -1,5 +1,8 @@
 # GitHub Actions
 
+## Release Asset
+- Watch this YouTube video [Creating a GitHub release in a GitHub Actions workflow](https://www.youtube.com/watch?v=_ueJ3LrRqPU&t=40s&ab_channel=MicrosoftDevRadio)
+
 ## GITHUB_TOKEN
 - Getting this error from a GitHub Action step?
 ```

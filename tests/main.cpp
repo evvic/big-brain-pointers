@@ -25,6 +25,11 @@ int main() {
             std::cout << "ptr2 is now null\n";
         }
         ptr3->sayHello();
+
+        // test make_unique
+        auto ptr = bbp::make_unique<Test>();
+        ptr->sayHello();
+
     } // ptr3 goes out of scope and the Test object is destroyed
 
     return 0;

@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 include_directories(include)
 
 # Add the library
-add_library(memory SHARED src/UniquePointer.cpp)
+add_library(memory SHARED src/unique_ptr.cpp)
 
 # Add the executable for testing
 add_executable(test_memory tests/main.cpp)

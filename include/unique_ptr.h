@@ -2,16 +2,16 @@
 #define UNIQUE_POINTER_H
 
 template <typename T>
-class UniquePointer {
+class unique_ptr {
 public:
-    explicit UniquePointer(T* ptr = nullptr) : ptr_(ptr) {}
-    ~UniquePointer() { delete ptr_; }
+    explicit unique_ptr(T* ptr = nullptr) : ptr_(ptr) {}
+    ~unique_ptr() { delete ptr_; }
 
-    UniquePointer(const UniquePointer&) = delete;
-    UniquePointer& operator=(const UniquePointer&) = delete;
+    unique_ptr(const unique_ptr&) = delete;
+    unique_ptr& operator=(const unique_ptr&) = delete;
 
-    UniquePointer(UniquePointer&& other) noexcept : ptr_(other.ptr_) { other.ptr_ = nullptr; }
-    UniquePointer& operator=(UniquePointer&& other) noexcept {
+    unique_ptr(unique_ptr&& other) noexcept : ptr_(other.ptr_) { other.ptr_ = nullptr; }
+    unique_ptr& operator=(unique_ptr&& other) noexcept {
         if (this != &other) {
             delete ptr_;
             ptr_ = other.ptr_;

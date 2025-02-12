@@ -10,16 +10,16 @@ public:
 
 int main() {
     {
-        UniquePointer<Test> ptr1(new Test());
+        unique_ptr<Test> ptr1(new Test());
         ptr1->sayHello();
 
-        UniquePointer<Test> ptr2 = std::move(ptr1);
+        unique_ptr<Test> ptr2 = std::move(ptr1);
         if (!ptr1.get()) {
             std::cout << "ptr1 is now null\n";
         }
         ptr2->sayHello();
 
-        UniquePointer<Test> ptr3;
+        unique_ptr<Test> ptr3;
         ptr3 = std::move(ptr2);
         if (!ptr2.get()) {
             std::cout << "ptr2 is now null\n";

@@ -1,7 +1,7 @@
 #ifndef BBP_H
 #define BBP_H
 
-#include "UniquePointer.h"
+#include "unique_ptr.h"
 
 // big brain pointers
 namespace bbp {
@@ -35,8 +35,8 @@ T&& forward(typename remove_reference<T>::type&& t) noexcept {
 
 // make_unique function template
 template <typename T, typename... Args>
-UniquePointer<T> make_unique(Args&&... args) {
-    return UniquePointer<T>(new T(bbp::forward<Args>(args)...));
+unique_ptr<T> make_unique(Args&&... args) {
+    return unique_ptr<T>(new T(bbp::forward<Args>(args)...));
 }
 
 }

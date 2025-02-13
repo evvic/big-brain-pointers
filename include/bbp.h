@@ -39,6 +39,19 @@ unique_ptr<T> make_unique(Args&&... args) {
     return unique_ptr<T>(new T(bbp::forward<Args>(args)...));
 }
 
+
+// Custom implementation of move
+/**
+   *  @brief  Custom implementation of move - convert a value to an rvalue.
+   *  @param  t  A thing of arbitrary type.
+   *  @return The parameter cast to an rvalue-reference to allow moving it.
+  */
+template <typename T>
+constexpr typename remove_reference<T>::type&&
+move(T&& t) noexcept {
+    return static_cast<typename remove_reference<T>::type&&>(t);
+}
+
 }
 
 #endif // BBP_H

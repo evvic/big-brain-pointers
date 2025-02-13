@@ -8,18 +8,28 @@ public:
     void sayHello() { std::cout << "Hello from Test object\n"; }
 };
 
+// Custom implementation of default_delete
+template <typename T>
+struct test_deleter {
+    void operator()(T* ptr) const {
+        std::cout << "Deleter invoked\n";
+        delete ptr;
+    }
+};
+
 int main() {
     {
-        unique_ptr<Test> ptr1(new Test());
+        // Specify the custom deleter type explicitly
+        unique_ptr<Test, test_deleter<Test>> ptr1(new Test(), test_deleter<Test>());
         ptr1->sayHello();
 
-        unique_ptr<Test> ptr2 = std::move(ptr1);
+        unique_ptr<Test, test_deleter<Test>> ptr2 = bbp::move(ptr1);
         if (!ptr1.get()) {
             std::cout << "ptr1 is now null\n";
         }
         ptr2->sayHello();
 
-        unique_ptr<Test> ptr3;
+        unique_ptr<Test, test_deleter<Test>> ptr3;
         ptr3 = std::move(ptr2);
         if (!ptr2.get()) {
             std::cout << "ptr2 is now null\n";

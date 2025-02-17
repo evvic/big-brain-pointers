@@ -18,10 +18,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #     message(WARNING "Your compiler may not fully support C++23")
 # endif()
 
-add_executable(main tests/main.cpp)
+# Include directories
+include_directories(include)
+
+# Add the library
+add_library(memory SHARED src/unique_ptr.cpp)
+
+# Add the executable for testing
+add_executable(test_memory tests/main.cpp)
+
+# Link the library to the test executable
+target_link_libraries(test_memory memory)
 
 # Specify C++23 standard for the target
-target_compile_features(main PUBLIC cxx_std_23)
-
-# Add include directory
-target_include_directories(main PUBLIC ${CMAKE_SOURCE_DIR}/include)
+target_compile_features(test_memory PUBLIC cxx_std_23)

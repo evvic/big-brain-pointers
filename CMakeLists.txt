@@ -22,3 +22,6 @@ add_executable(main tests/main.cpp)
 
 # Specify C++23 standard for the target
 target_compile_features(main PUBLIC cxx_std_23)
+
+# Add include directory
+target_include_directories(main PUBLIC ${CMAKE_SOURCE_DIR}/include)

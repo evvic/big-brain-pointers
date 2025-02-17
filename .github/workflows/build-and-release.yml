@@ -18,9 +18,7 @@ jobs:
       uses: jwlawson/actions-setup-cmake@v1
 
     - name: Install dependencies
-      run: sudo apt install -y g++ \
-        ninja-build \
-        cmake
+      run: sudo apt install -y g++ ninja-build cmake
 
     - name: Create build directory
       run: mkdir -p build

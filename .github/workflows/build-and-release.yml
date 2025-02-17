@@ -17,8 +17,24 @@ jobs:
     - name: Set up CMake
       uses: jwlawson/actions-setup-cmake@v1
 
+    - name: Check versions
+      run: |
+        cmake --version
+        ninja --version
+        g++ --version
+        which g++
+        which cmake
+
     - name: Install dependencies
-      run: sudo apt install -y g++ ninja-build cmake
+      run: sudo apt install -y g++ ninja-build
+
+    - name: Check versions2
+      run: |
+        cmake --version
+        ninja --version
+        g++ --version
+        which g++
+        which cmake
 
     - name: Create build directory
       run: mkdir -p build
@@ -28,13 +44,7 @@ jobs:
         cd build
         cmake .. -G Ninja
 
-    - name: Check versions
-      run: |
-        cmake --version
-        ninja --version
-        g++ --version
-        which g++
-        which cmake
+    
 
     - name: Build
       run: |

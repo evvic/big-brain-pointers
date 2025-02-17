@@ -28,6 +28,14 @@ jobs:
         cd build
         cmake .. -G Ninja
 
+    - name: Check versions
+      run: |
+        cmake --version
+        ninja --version
+        g++ --version
+        which g++
+        which cmake
+
     - name: Build
       run: |
         cd build

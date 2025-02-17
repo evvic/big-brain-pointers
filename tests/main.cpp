@@ -1,5 +1,5 @@
 #include <iostream>
-// #include "memory.h"
+#include "memory.h"
 #include <print>
 
 class Test {
@@ -20,30 +20,26 @@ struct test_deleter {
 
 int main() {
     {
+        // Specify the custom deleter type explicitly
+        unique_ptr<Test, test_deleter<Test>> ptr1(new Test(), test_deleter<Test>());
+        ptr1->sayHello();
 
-        std::println("Hello World!");
+        unique_ptr<Test, test_deleter<Test>> ptr2 = bbp::move(ptr1);
+        if (!ptr1.get()) {
+            std::println("ptr1 is now null\n");
+        }
+        ptr2->sayHello();
 
-        // TODO: uncomment this code
-        // // Specify the custom deleter type explicitly
-        // unique_ptr<Test, test_deleter<Test>> ptr1(new Test(), test_deleter<Test>());
-        // ptr1->sayHello();
+        unique_ptr<Test, test_deleter<Test>> ptr3;
+        ptr3 = std::move(ptr2);
+        if (!ptr2.get()) {
+            std::println("ptr2 is now null\n");
+        }
+        ptr3->sayHello();
 
-        // unique_ptr<Test, test_deleter<Test>> ptr2 = bbp::move(ptr1);
-        // if (!ptr1.get()) {
-        //     println("ptr1 is now null\n");
-        // }
-        // ptr2->sayHello();
-
-        // unique_ptr<Test, test_deleter<Test>> ptr3;
-        // ptr3 = std::move(ptr2);
-        // if (!ptr2.get()) {
-        //     println("ptr2 is now null\n");
-        // }
-        // ptr3->sayHello();
-
-        // // test make_unique
-        // auto ptr = bbp::make_unique<Test>();
-        // ptr->sayHello();
+        // test make_unique
+        auto ptr = bbp::make_unique<Test>();
+        ptr->sayHello();
 
     } // ptr3 goes out of scope and the Test object is destroyed
 

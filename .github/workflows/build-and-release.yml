@@ -34,6 +34,7 @@ jobs:
         g++ --version
         which g++
         which cmake
+        ls -la /usr/bin/ | grep ++
 
     - name: Create build directory
       run: mkdir -p build

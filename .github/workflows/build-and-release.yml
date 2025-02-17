@@ -17,26 +17,8 @@ jobs:
     - name: Set up CMake
       uses: jwlawson/actions-setup-cmake@v1
 
-    - name: Check versions
-      run: |
-        cmake --version
-        g++ --version
-        which g++
-        which cmake
-
     - name: Install dependencies
       run: sudo apt install -y g++-14 ninja-build
-
-    - name: Check versions2
-      run: |
-        cmake --version
-        ninja --version
-        g++ --version
-        g++-14 --version
-        which g++
-        which g++-14
-        which cmake
-        ls -la /usr/bin/ | grep ++
 
     - name : Set g++-14 as default
       run: sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-14 90
@@ -48,8 +30,6 @@ jobs:
       run: |
         cd build
         cmake .. -G Ninja
-
-    
 
     - name: Build
       run: |

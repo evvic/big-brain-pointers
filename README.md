@@ -4,21 +4,24 @@ My implementation of the memory.h library leveraging C++23
 # Build the library
 ```bash
 cd build
-cmake ..
-make
+cmake .. -G Ninja
+ninja
 ```
+- The flag `-DCMAKE_CXX_COMPILER=g++-14` should not be needed
 
 # Run with main to test
 ```bash
 ./test_memory
 ```
 
-
-
 # C++23 Setup
 
 ## Update CMake:
 - CMake must be greater than version 3.30 for C++23 features
+```bash
+sudo apt install cmake
+sudo apt install ninja-build
+```
 - Follow this answer to get the latest version: https://askubuntu.com/a/1157132
 
 ## Setup `g++`

@@ -2,8 +2,9 @@ name: Build and Release SO
 
 on:
   push:
-    tags:
-      - '*.*.*'
+  # push:
+  #   tags:
+  #     - '*.*.*'
 
 jobs:
   build:
@@ -17,8 +18,9 @@ jobs:
       uses: jwlawson/actions-setup-cmake@v1
 
     - name: Install dependencies
-      run: sudo apt-get install -y g++
-
+      run: sudo apt install -y g++ \
+        ninja-build \
+        cmake
 
     - name: Create build directory
       run: mkdir -p build
@@ -26,12 +28,12 @@ jobs:
     - name: Configure CMake
       run: |
         cd build
-        cmake ..
+        cmake .. -G Ninja
 
     - name: Build
       run: |
         cd build
-        make
+        ninja
 
     - name: Create GitHub Release
       id: create_release

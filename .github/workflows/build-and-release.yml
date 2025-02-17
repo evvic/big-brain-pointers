@@ -25,16 +25,21 @@ jobs:
         which cmake
 
     - name: Install dependencies
-      run: sudo apt install -y g++ ninja-build
+      run: sudo apt install -y g++-14 ninja-build
 
     - name: Check versions2
       run: |
         cmake --version
         ninja --version
         g++ --version
+        g++-14 --version
         which g++
+        which g++-14
         which cmake
         ls -la /usr/bin/ | grep ++
+
+    - name : Set g++-14 as default
+      run: sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-14 90
 
     - name: Create build directory
       run: mkdir -p build

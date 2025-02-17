@@ -2,9 +2,8 @@ name: Build and Release SO
 
 on:
   push:
-  # push:
-  #   tags:
-  #     - '*.*.*'
+    tags:
+      - '*.*.*'
 
 jobs:
   build:

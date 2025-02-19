@@ -2,7 +2,6 @@
 #define UNIQUE_POINTER_H
 
 #include "bbp.h"
-#include <utility>
 
 // Custom implementation of default_delete
 template <typename T>
@@ -39,8 +38,8 @@ public:
      *  @return a new unique_ptr that takes ownership of the other unique_ptr.
      */
     constexpr unique_ptr(unique_ptr&& other) noexcept 
-        : ptr_(std::exchange(other.ptr_, nullptr)),
-        deleter_(std::move(other.deleter_))
+        : ptr_(bbp::exchange(other.ptr_, nullptr)),
+        deleter_(bbp::move(other.deleter_))
     {}
 
     /**
@@ -52,8 +51,8 @@ public:
     {
         if (this != &other) {
             reset();
-            this->ptr_ = std::exchange(other.ptr_, nullptr);
-            deleter_ = std::move(other.deleter_);
+            this->ptr_ = bbp::exchange(other.ptr_, nullptr);
+            deleter_ = bbp::move(other.deleter_);
         }
         return *this;
     }

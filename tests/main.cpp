@@ -24,7 +24,7 @@ int main() {
         unique_ptr<Test, test_deleter<Test>> ptr1(new Test(), test_deleter<Test>());
         ptr1->sayHello();
 
-        unique_ptr<Test, test_deleter<Test>> ptr2 = bbp::move(ptr1);
+        unique_ptr<Test, test_deleter<Test>> ptr2 = std::move(ptr1);
         if (!ptr1.get()) {
             std::println("ptr1 is now null\n");
         }

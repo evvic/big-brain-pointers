@@ -62,19 +62,19 @@ public:
      *  @brief  Dereference operator.
      *  @return a reference to the managed object.
      */
-    T& operator*() const { return *ptr_; }
+    constexpr T& operator*() const { return *ptr_; }
 
     /**
      *  @brief  Member access operator.
      *  @return a pointer to the managed object.
      */
-    T* operator->() const { return ptr_; }
+    constexpr T* operator->() const { return ptr_; }
 
     /**
      *  @brief  Get the managed object.
      *  @return a pointer to the managed object.
      */
-    T* get() const { return ptr_; }
+    constexpr T* get() const { return ptr_; }
 
     /**
      *  @brief  Release the ownership of the managed object without deleting it.
